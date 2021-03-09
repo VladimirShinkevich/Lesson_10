@@ -100,7 +100,4 @@ class Train
     wagons.each_with_index(&block) if block_given?
   end
 
-  def validate!
-    raise ArgumentError, 'Неправильный формат номера поезда' if @number !~ FORMAT
-  end
 end
