@@ -16,7 +16,4 @@ class Wagon
     @wagon_type = wagon_type
   end
 
-  def validate!
-    raise ArgumentError, 'Неправильный тип вагона' unless %i[passenger cargo].include? wagon_type
-  end
 end
