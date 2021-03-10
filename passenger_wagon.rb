@@ -7,6 +7,8 @@ class PassengerWagon < Wagon
   include Validation
 
   attr_reader :free_places, :occupied_places, :places
+  
+  validate :places, :type, Integer
 
   private
 
@@ -27,12 +29,4 @@ class PassengerWagon < Wagon
     self.free_places = places - occupied_places
   end
 
-  private
-
-  def validate!
-    super
-    raise ArgumentError, 'Неправильно введенное значение введите целое число' if places.class != Integer
-    raise ArgumentError, 'Количество мест не может быть отрицательным' if places <= 0
-    raise ArgumentError, 'Свободных мест нет!' if occupied_places == places
-  end
 end
